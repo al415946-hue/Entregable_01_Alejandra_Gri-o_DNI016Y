@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "author": "Carlos Vicente Ariño Latorre",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -38.4, "left": -4.76, "attrs": {} },
+    { "type": "chip-stepper-poten", "id": "chip2", "top": 394.62, "left": 216, "attrs": {} },
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "stepper1",
+      "top": 214.81,
+      "left": 10.03,
+      "attrs": { "size": "17" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -121.6,
+      "left": -56.8,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:25", "stepper1:B-", "#8f4814", [ "h-67.05", "v364.8", "h172.81" ] ],
+    [ "esp:26", "stepper1:B+", "red", [ "h-47.85", "v345.6", "h144" ] ],
+    [ "esp:27", "stepper1:A+", "blue", [ "h-28.65", "v316.8", "h115.2" ] ],
+    [ "esp:14", "stepper1:A-", "green", [ "h-19.05", "v316.8", "h153.6" ] ],
+    [ "chip2:D", "esp:15", "green", [ "h40.21", "v-297.6" ] ],
+    [ "chip2:C", "esp:16", "green", [ "h59.41", "v-326.4", "h-9.6" ] ],
+    [ "chip2:B", "esp:22", "green", [ "h78.61", "v-268.8", "h0", "v-163.2" ] ],
+    [ "chip2:A", "esp:23", "green", [ "v9.6", "h97.81", "v-451.2" ] ],
+    [ "chip2:Vs", "esp:34", "green", [ "h11.41", "v-576", "h-441.6", "v163.2" ] ],
+    [ "esp:27", "chip2:A+", "blue", [ "h-28.65", "v316.8", "h249.6" ] ],
+    [ "esp:14", "chip2:A-", "green", [ "h-19.05", "v316.8", "h240" ] ],
+    [ "esp:26", "chip2:B+", "red", [ "h-47.85", "v345.6", "h268.8" ] ],
+    [ "esp:25", "chip2:B-", "#8f4814", [ "h-67.05", "v364.8", "h288" ] ],
+    [ "esp:35", "ldr1:AO", "green", [ "h-76.65", "v-86.4", "h278.4" ] ],
+    [ "esp:GND.2", "ldr1:GND", "black", [ "v0", "h48", "v-86.4" ] ],
+    [ "esp:5V", "ldr1:VCC", "red", [ "h0.15", "v19.2", "h163.2", "v-288" ] ]
+  ],
+  "dependencies": {}
+}
